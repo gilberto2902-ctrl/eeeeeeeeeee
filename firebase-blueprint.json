@@ -1,0 +1,104 @@
+{
+  "entities": {
+    "Certificate": {
+      "title": "Certificate",
+      "description": "Calibration certificate data",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "osNumber": { "type": "string" },
+        "clientName": { "type": "string" },
+        "calibrationDate": { "type": "string", "format": "date" },
+        "issuanceDate": { "type": "string", "format": "date" },
+        "type": { "type": "string", "enum": ["manometer", "valve"] },
+        "instrument": {
+          "type": "object",
+          "properties": {
+            "model": { "type": "string" },
+            "serial": { "type": "string" },
+            "type": { "type": "string" },
+            "range": { "type": "string" },
+            "division": { "type": "string" },
+            "class": { "type": "string" },
+            "openingPressure": { "type": "string" },
+            "closingPressure": { "type": "string" },
+            "adjustPressure": { "type": "string" }
+          }
+        },
+        "standard": {
+          "type": "object",
+          "properties": {
+            "id": { "type": "string" },
+            "name": { "type": "string" },
+            "type": { "type": "string" },
+            "range": { "type": "string" },
+            "division": { "type": "string" },
+            "class": { "type": "string" },
+            "origin": { "type": "string" },
+            "certificateNumber": { "type": "string" },
+            "validityDate": { "type": "string", "format": "date" }
+          }
+        },
+        "measurements": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "reference": { "type": "string" },
+              "ascending1": { "type": "string" },
+              "descending1": { "type": "string" },
+              "ascending2": { "type": "string" },
+              "descending2": { "type": "string" }
+            }
+          }
+        },
+        "results": {
+          "type": "object",
+          "properties": {
+            "classIndex": { "type": "string" },
+            "repeatability": { "type": "string" },
+            "hysteresis": { "type": "string" },
+            "deviation": { "type": "string" },
+            "uncertainty": { "type": "string" },
+            "temperature": { "type": "string" },
+            "pressure": { "type": "string" },
+            "humidity": { "type": "string" },
+            "observations": { "type": "string" },
+            "procedure": { "type": "string" },
+            "approvedBy": { "type": "string" },
+            "authenticatedBy": { "type": "string" }
+          }
+        },
+        "userId": { "type": "string" },
+        "companyId": { "type": "string" }
+      },
+      "required": ["osNumber", "clientName", "calibrationDate", "type", "userId"]
+    },
+    "Company": {
+      "title": "Company",
+      "description": "Client company data",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "cnpj": { "type": "string" },
+        "address": { "type": "string" },
+        "phone": { "type": "string" },
+        "email": { "type": "string" },
+        "userId": { "type": "string" }
+      },
+      "required": ["name", "userId"]
+    }
+  },
+  "firestore": {
+    "/certificates/{certificateId}": {
+      "schema": "Certificate",
+      "description": "Collection of calibration certificates"
+    },
+    "/companies/{companyId}": {
+      "schema": "Company",
+      "description": "Collection of client companies"
+    }
+  }
+}
