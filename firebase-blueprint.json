@@ -18,6 +18,7 @@
             "model": { "type": "string" },
             "serial": { "type": "string" },
             "type": { "type": "string" },
+            "fluid": { "type": "string", "enum": ["ÓLEO", "ÁGUA", "AR", "VAPOR"] },
             "range": { "type": "string" },
             "division": { "type": "string" },
             "class": { "type": "string" },

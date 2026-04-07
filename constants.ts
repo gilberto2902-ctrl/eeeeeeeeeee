@@ -12,6 +12,7 @@ export const INITIAL_CERTIFICATE: Certificate = {
     model: 'WIKA / 232.50',
     serial: '99887766',
     type: 'MANÔMETRO ANALÓGICO',
+    fluid: 'AR',
     range: '0 a 10 kgf/cm²',
     division: '0,1 kgf/cm²',
     class: 'A',

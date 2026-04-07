@@ -290,6 +290,20 @@ const CertificateForm: React.FC<CertificateFormProps> = ({ data, onChange, onSav
                   <option value="DIGITAL">DIGITAL</option>
                 </select>
               </div>
+              <div className={groupClass}>
+                <label className={labelClass}>Fluido</label>
+                <select 
+                  value={data.instrument.fluid || ''} 
+                  onChange={(e) => updateField('instrument', 'fluid', e.target.value)} 
+                  className={inputClass}
+                >
+                  <option value="">Selecione...</option>
+                  <option value="ÓLEO">ÓLEO</option>
+                  <option value="ÁGUA">ÁGUA</option>
+                  <option value="AR">AR</option>
+                  <option value="VAPOR">VAPOR</option>
+                </select>
+              </div>
               
               {data.type === 'manometer' ? (
                 <>

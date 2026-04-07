@@ -121,6 +121,11 @@ const CertificatePreview: React.FC<PreviewProps> = ({ data, company }) => {
                     <td className="text-center bold">{data.instrument.type}</td>
                     <td className="text-center">{data.standard.type}</td>
                 </tr>
+                <tr>
+                    <td>Fluido</td>
+                    <td className="text-center bold">{data.instrument.fluid || '---'}</td>
+                    <td className="text-center">---</td>
+                </tr>
                 
                 {/* Dynamic Rows based on Type */}
                 {isManometer ? (

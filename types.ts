@@ -18,6 +18,7 @@ export interface Instrument {
   model: string;
   serial: string;
   type: string;
+  fluid?: string;
   // Specific to Manometer
   range?: string;
   division?: string;
